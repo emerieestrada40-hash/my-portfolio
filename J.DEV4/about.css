@@ -1,0 +1,399 @@
+/* ===== GENERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    color: #171717;
+    line-height: 1.7;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: #111;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+}
+
+.contact-btn {
+    border: 1px solid white;
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+/* ===== ABOUT LAYOUT ===== */
+.about-page {
+    min-height: 80vh;
+    padding: 65px 7%;
+}
+
+.about-layout {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 55px;
+    align-items: start;
+}
+
+/* ===== PROFILE ===== */
+.profile-side {
+    text-align: center;
+    padding-top: 25px;
+    animation: slideLeft 0.9s ease both;
+}
+
+.profile-circle {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    outline: 2px solid #222;
+    box-shadow: 0 8px 25px #00000018;
+    transition: transform 0.4s ease;
+}
+
+.profile-circle:hover {
+    transform: scale(1.05);
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.profile-side h3 {
+    font-size: 19px;
+    margin-bottom: 3px;
+}
+
+.profile-role {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===== SOCIAL LINKS ===== */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #222;
+    border-radius: 50%;
+    color: #111;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #111;
+    color: white;
+    transform: translateY(-4px);
+}
+
+/* ===== ABOUT CONTENT ===== */
+.about-content {
+    min-width: 0;
+    animation: slideRight 0.9s ease both;
+}
+
+.about-content h1 {
+    font-size: 42px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.about-content h1 span {
+    color: #777;
+}
+
+.about-subtitle {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.about-description {
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.about-description p {
+    margin-bottom: 13px;
+}
+
+/* ===== THREE ANIMATED BOXES ===== */
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.about-card {
+    min-width: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: 3px solid #222;
+    border-radius: 8px;
+    padding: 20px 15px;
+
+    /* Animation when boxes first appear */
+    opacity: 0;
+    animation: cardAppear 0.7s ease forwards;
+
+    /* Smooth movement when hovering */
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    cursor: pointer;
+    position: relative;
+}
+
+/* Boxes appear one after another */
+.about-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.about-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.about-card:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+/* ===== WHOLE BOX HOVER ANIMATION ===== */
+.about-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 15px 30px #00000025;
+    border-top-color: #d32f2f;
+}
+
+/* Icon animation when the whole box is hovered */
+.card-icon {
+    font-size: 27px;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.about-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.about-card p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ===== BACK TO HOME BUTTON ===== */
+.main-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 22px;
+    background: #111;
+    color: white;
+    border: 1px solid #111;
+    border-radius: 5px;
+    text-decoration: none;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.main-btn:hover {
+    background: white;
+    color: #111;
+    transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #111;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 900px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .profile-side {
+        padding-top: 0;
+    }
+
+    .about-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+    header {
+        padding: 16px 5%;
+    }
+
+    nav {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .about-page {
+        padding: 35px 5%;
+    }
+
+    .about-content h1 {
+        font-size: 32px;
+    }
+
+    .about-subtitle {
+        font-size: 14px;
+    }
+
+    .profile-circle {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        padding: 20px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+/* ===== REDUCE ANIMATION IF PREFERRED ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .about-card {
+        opacity: 1;
+    }
+}
